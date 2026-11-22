@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Video Ads · اطلب إعلان فيديو بالذكاء الاصطناعي</title>
+<meta name="description" content="عبّ النموذج في دقيقتين ونبدأ إعلانك: سكربت، صوت سعودي، مشاهد بالذكاء الاصطناعي، جاهز لتيك توك وسناب.">
+<meta property="og:title" content="Video Ads · إعلانك بالذكاء الاصطناعي">
+<meta property="og:description" content="اطلب إعلان فيديو لتيك توك وسناب في دقيقتين.">
+<meta property="og:image" content="og.png">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#120f24">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#120f24;--card:#1b1734;--line:#2d2852;--txt:#f3f1ff;--mut:#a9a3c9;--a:#7C5CFF;--b:#FF5E7E;--ok:#22c55e;--gold:#FFE28A}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{background:var(--bg);color:var(--txt);font-family:"IBM Plex Sans Arabic",system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif}
+body{min-height:100vh;background:radial-gradient(1200px 600px at 100% -10%,#2b1f63 0%,transparent 60%),radial-gradient(900px 500px at -10% 10%,#3a1838 0%,transparent 55%),var(--bg)}
+.wrap{max-width:560px;margin:0 auto;padding:18px 16px 120px}
+header{display:flex;align-items:center;gap:12px;margin:6px 0 18px}
+header img{width:48px;height:48px}
+.brand b{display:block;font-size:20px;letter-spacing:.5px;direction:ltr;text-align:right}
+.brand span{font-size:13px;color:var(--mut)}
+.hero h1{font-size:26px;line-height:1.35;font-weight:700}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--a),var(--b));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--mut);margin-top:8px;font-size:15px;line-height:1.6}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.badges span{font-size:12.5px;padding:5px 10px;border-radius:999px;background:#ffffff10;border:1px solid var(--line);color:#d8d3f5}
+.prog{margin:22px 0 8px;display:flex;gap:6px}
+.prog i{flex:1;height:6px;border-radius:6px;background:var(--line);transition:.3s}
+.prog i.on{background:linear-gradient(90deg,var(--a),var(--b))}
+.stepname{font-size:13px;color:var(--mut);margin-bottom:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:18px 16px;margin-bottom:14px}
+.q{font-weight:600;font-size:16px;margin-bottom:10px}
+.q small{font-weight:400;color:var(--mut);font-size:12.5px;margin-right:6px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1.5px solid var(--line);background:#ffffff08;color:var(--txt);border-radius:14px;padding:10px 13px;font:inherit;font-size:14.5px;cursor:pointer;transition:.15s;user-select:none}
+.chip.on{border-color:transparent;background:linear-gradient(135deg,var(--a),var(--b));color:#fff;box-shadow:0 6px 18px #7c5cff40}
+.chips.cards .chip{flex:1 1 calc(50% - 8px);text-align:right;padding:12px}
+.chip .t{display:block;font-weight:600}
+.chip .d{display:block;font-size:12px;color:var(--mut);margin-top:3px}
+.chip.on .d{color:#ffffffd0}
+input[type=text],input[type=tel],input[type=url],textarea{width:100%;background:#0f0c1f;border:1.5px solid var(--line);border-radius:14px;color:var(--txt);font:inherit;font-size:15px;padding:12px 14px;outline:none}
+input:focus,textarea:focus{border-color:var(--a)}
+textarea{min-height:84px;resize:vertical}
+.f{margin-top:10px}
+.f label{display:block;font-size:13.5px;color:var(--mut);margin-bottom:6px}
+.chk{display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.6;margin-top:10px;color:#d8d3f5}
+.chk input{width:20px;height:20px;margin-top:3px;accent-color:#7C5CFF;flex:none}
+.nav{position:fixed;left:0;right:0;bottom:0;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:linear-gradient(0deg,var(--bg) 70%,transparent);display:flex;gap:10px;justify-content:center;z-index:5}
+.nav .in{max-width:560px;width:100%;display:flex;gap:10px}
+.btn{flex:1;border:0;border-radius:16px;padding:15px;font:inherit;font-weight:700;font-size:16px;cursor:pointer}
+.btn.p{background:linear-gradient(135deg,var(--a),var(--b));color:#fff;box-shadow:0 10px 26px #ff5e7e40}
+.btn.s{flex:0 0 96px;background:#ffffff12;color:var(--txt);border:1px solid var(--line)}
+.btn:disabled{opacity:.6}
+.err{color:#ff8fa3;font-size:13.5px;margin-top:8px;display:none}
+.step{display:none;animation:in .25s ease}
+.step.on{display:block}
+@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.tg{position:fixed;left:16px;bottom:calc(86px + env(safe-area-inset-bottom));z-index:6;display:flex;align-items:center;gap:8px;text-decoration:none}
+.tg .ic{width:52px;height:52px;border-radius:50%;background:#229ED9;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px #229ed955}
+.tg .ic svg{width:28px;height:28px}
+.tg .tip{transition:opacity .4s;background:#fff;color:#1b1734;font-size:12.5px;font-weight:600;padding:7px 11px;border-radius:12px;box-shadow:0 6px 16px #0006;white-space:nowrap}
+.done{text-align:center;padding:30px 10px}
+.done .big{font-size:56px}
+.done h2{font-size:24px;margin:10px 0}
+.done p{color:var(--mut);line-height:1.7}
+.sum{white-space:pre-wrap;text-align:right;background:#0f0c1f;border:1px solid var(--line);border-radius:14px;padding:12px;font-size:13px;margin-top:14px;max-height:260px;overflow:auto}
+.hp{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;pointer-events:none}
+html,body{overflow-x:hidden}
+footer{text-align:center;color:var(--mut);font-size:12px;margin-top:18px;line-height:1.7}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img src="logo.svg" alt="Video Ads">
+    <div class="brand"><b>VIDEO ADS</b><span>إعلانات فيديو بالذكاء الاصطناعي</span></div>
+  </header>
+
+  <section class="hero" id="hero">
+    <h1>اطلب إعلانك في <em>دقيقتين</em><br>بضغطات بسيطة</h1>
+    <p>جاوب بالاختيارات، ونرجع لك بفكرة الإعلان والسكربت. أسرع من المراسلة، لأننا نبدأ الشغل مباشرة من إجاباتك.</p>
+    <div class="badges"><span>🎙️ صوت سعودي</span><span>🎬 مشاهد بالذكاء الاصطناعي</span><span>📱 جاهز لتيك توك وسناب</span></div>
+  </section>
+
+  <div class="prog" id="prog"><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="stepname" id="stepname"></div>
+
+  <form id="f" novalidate>
+    <div class="hp" aria-hidden="true"><input type="text" name="website" tabindex="-1" autocomplete="off"></div>
+
+    <!-- STEP 1 -->
+    <div class="step" data-name="١ من ٥ · نشاطك">
+      <div class="card"><div class="q">وش نوع نشاطك؟</div>
+        <div class="chips" data-name="business_type" data-type="one">
+          <button type="button" class="chip">متجر إلكتروني</button><button type="button" class="chip">تطبيق</button><button type="button" class="chip">مطعم / كافيه</button><button type="button" class="chip">تجميل / عناية</button><button type="button" class="chip">عيادة / صحة</button><button type="button" class="chip">تعليم / تدريب</button><button type="button" class="chip">عقار</button><button type="button" class="chip">خدمات</button><button type="button" class="chip">علامة شخصية</button><button type="button" class="chip">أخرى</button>
+        </div></div>
+      <div class="card"><div class="q">وش نعلن عنه؟</div>
+        <div class="chips" data-name="advertise" data-type="one">
+          <button type="button" class="chip">منتج</button><button type="button" class="chip">تطبيق</button><button type="button" class="chip">خدمة</button><button type="button" class="chip">عرض / خصم</button><button type="button" class="chip">افتتاح / إطلاق</button><button type="button" class="chip">التعريف بالعلامة</button>
+        </div></div>
+      <div class="card"><div class="q">هدف الإعلان <small>(اختر لين ٢)</small></div>
+        <div class="chips" data-name="goal" data-type="many" data-max="2">
+          <button type="button" class="chip">مبيعات</button><button type="button" class="chip">تحميل التطبيق</button><button type="button" class="chip">حجوزات / طلبات</button><button type="button" class="chip">رسائل واتساب</button><button type="button" class="chip">زيارات للموقع</button><button type="button" class="chip">متابعين وانتشار</button>
+        </div></div>
+      <div class="card"><div class="q">وين بينزل الإعلان؟ <small>(أكثر من خيار)</small></div>
+        <div class="chips" data-name="platforms" data-type="many">
+          <button type="button" class="chip">تيك توك</button><button type="button" class="chip">سناب شات</button><button type="button" class="chip">إنستقرام ريلز</button><button type="button" class="chip">يوتيوب شورتس</button><button type="button" class="chip">إكس</button>
+        </div></div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step" data-name="٢ من ٥ · شكل الفيديو">
+      <div class="card"><div class="q">أي أسلوب يعجبك؟</div>
+        <div class="chips cards" data-name="style" data-type="one">
+          <button type="button" class="chip"><span class="t">🎬 قصة سينمائية</span><span class="d">مشاهد واقعية وقصة تشد</span></button>
+          <button type="button" class="chip"><span class="t">🔬 إثبات وأبحاث</span><span class="d">سر + دليل علمي + المنتج</span></button>
+          <button type="button" class="chip"><span class="t">🧸 منتج يتكلّم</span><span class="d">شخصية كرتونية ثلاثية الأبعاد</span></button>
+          <button type="button" class="chip"><span class="t">🎨 رسوم توضيحية</span><span class="d">رسم ثنائي الأبعاد بسيط</span></button>
+          <button type="button" class="chip"><span class="t">📱 موشن جرافيك</span><span class="d">شاشات وبطاقات وأرقام</span></button>
+          <button type="button" class="chip"><span class="t">✨ اقترحوا الأنسب</span><span class="d">نختار لك حسب نشاطك</span></button>
+        </div></div>
+      <div class="card"><div class="q">مدة الفيديو</div>
+        <div class="chips" data-name="length" data-type="one">
+          <button type="button" class="chip">١٥ ثانية</button><button type="button" class="chip">٣٠ ثانية</button><button type="button" class="chip">٤٥–٦٠ ثانية</button><button type="button" class="chip">قصة ١–٣ دقايق</button><button type="button" class="chip">ما أدري</button>
+        </div></div>
+      <div class="card"><div class="q">كم فيديو تحتاج؟</div>
+        <div class="chips" data-name="count" data-type="one">
+          <button type="button" class="chip">١</button><button type="button" class="chip">٢–٣</button><button type="button" class="chip">٤–٦</button><button type="button" class="chip">باقة شهرية</button>
+        </div></div>
+      <div class="card"><div class="q">متى تبيه؟</div>
+        <div class="chips" data-name="deadline" data-type="one">
+          <button type="button" class="chip">مستعجل (٣ أيام)</button><button type="button" class="chip">خلال أسبوع</button><button type="button" class="chip">خلال أسبوعين</button><button type="button" class="chip">مرن</button>
+        </div></div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step" data-name="٣ من ٥ · الصوت والجمهور">
+      <div class="card"><div class="q">صوت الإعلان</div>
+        <div class="chips" data-name="voice" data-type="one">
+          <button type="button" class="chip">رجالي سعودي</button><button type="button" class="chip">نسائي سعودي</button><button type="button" class="chip">الاثنين (حوار)</button><button type="button" class="chip">بدون صوت</button><button type="button" class="chip">اختاروا لي</button>
+        </div>
+        <div class="q" style="margin-top:14px">النبرة</div>
+        <div class="chips" data-name="tone" data-type="one">
+          <button type="button" class="chip">قصصي هادئ</button><button type="button" class="chip">حماسي</button><button type="button" class="chip">كوميدي</button><button type="button" class="chip">رسمي وفخم</button>
+        </div>
+        <div class="q" style="margin-top:14px">اللهجة</div>
+        <div class="chips" data-name="dialect" data-type="one">
+          <button type="button" class="chip">سعودي أبيض</button><button type="button" class="chip">نجدي</button><button type="button" class="chip">حجازي</button><button type="button" class="chip">خليجي</button><button type="button" class="chip">فصحى</button>
+        </div>
+        <div class="q" style="margin-top:14px">موسيقى بالخلفية؟</div>
+        <div class="chips" data-name="music" data-type="one">
+          <button type="button" class="chip">نعم</button><button type="button" class="chip">لا، صوت ومؤثرات بس</button><button type="button" class="chip">ما يفرق</button>
+        </div></div>
+      <div class="card"><div class="q">مين الجمهور؟</div>
+        <div class="chips" data-name="audience_gender" data-type="one">
+          <button type="button" class="chip">رجال</button><button type="button" class="chip">نساء</button><button type="button" class="chip">الكل</button>
+        </div>
+        <div class="q" style="margin-top:14px">العمر <small>(أكثر من خيار)</small></div>
+        <div class="chips" data-name="audience_age" data-type="many">
+          <button type="button" class="chip">١٨–٢٤</button><button type="button" class="chip">٢٥–٣٤</button><button type="button" class="chip">٣٥–٤٤</button><button type="button" class="chip">٤٥+</button>
+        </div>
+        <div class="q" style="margin-top:14px">المنطقة</div>
+        <div class="chips" data-name="region" data-type="one">
+          <button type="button" class="chip">السعودية كلها</button><button type="button" class="chip">مدينة محددة</button><button type="button" class="chip">الخليج</button><button type="button" class="chip">الوطن العربي</button>
+        </div></div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="step" data-name="٤ من ٥ · رسالتك وموادك">
+      <div class="card"><div class="q">عن المنتج</div>
+        <div class="f"><label>اسم المنتج أو الخدمة *</label><input type="text" name="product_name" placeholder="مثال: مزيل عرق طبيعي"></div>
+        <div class="f"><label>أهم فايدة أو مشكلة يحلها (سطر واحد)</label><input type="text" name="main_benefit" placeholder="مثال: يمنع الريحة طول اليوم بدون ألمنيوم"></div>
+        <div class="f"><label>فيه عرض أو خصم؟ (اختياري)</label><input type="text" name="offer" placeholder="مثال: خصم ٢٠٪ أول طلب"></div>
+        <div class="q" style="margin-top:14px">وش تبي المشاهد يسوي بعد الإعلان؟</div>
+        <div class="chips" data-name="cta" data-type="one">
+          <button type="button" class="chip">اطلب الآن</button><button type="button" class="chip">حمّل التطبيق</button><button type="button" class="chip">احجز</button><button type="button" class="chip">تواصل واتساب</button><button type="button" class="chip">زر الموقع</button><button type="button" class="chip">تابعنا</button>
+        </div></div>
+      <div class="card"><div class="q">وش عندك من إثباتات؟ <small>(تقوّي الإعلان)</small></div>
+        <div class="chips" data-name="proofs" data-type="many">
+          <button type="button" class="chip">ترخيص / شهادة (مثل هيئة الغذاء والدواء)</button><button type="button" class="chip">دراسات أو أبحاث</button><button type="button" class="chip">تقييمات عملاء حقيقية</button><button type="button" class="chip">أرقام مبيعات / عملاء</button><button type="button" class="chip">ضمان استرداد</button><button type="button" class="chip">ما عندي</button>
+        </div></div>
+      <div class="card"><div class="q">وش متوفر عندك من مواد؟</div>
+        <div class="chips" data-name="assets" data-type="many">
+          <button type="button" class="chip">الشعار</button><button type="button" class="chip">صور المنتج</button><button type="button" class="chip">صور شاشات التطبيق</button><button type="button" class="chip">فيديوهات سابقة</button><button type="button" class="chip">ألوان وخطوط الهوية</button><button type="button" class="chip">ما عندي شي</button>
+        </div>
+        <div class="f"><label>رابط الملفات (Google Drive أو WeTransfer) — اختياري</label><input type="url" name="assets_link" placeholder="https://" dir="ltr"></div></div>
+      <div class="card"><div class="q">إعلانات عجبتك؟ 💡 <small>(روابط تيك توك / سناب / إنستقرام)</small></div>
+        <div class="f"><input type="url" name="ref_1" placeholder="رابط الإعلان الأول" dir="ltr"></div>
+        <div class="f"><input type="url" name="ref_2" placeholder="رابط الإعلان الثاني (اختياري)" dir="ltr"></div>
+        <div class="f"><input type="url" name="ref_3" placeholder="رابط الإعلان الثالث (اختياري)" dir="ltr"></div>
+        <div class="q" style="margin-top:14px">وش عجبك فيها؟</div>
+        <div class="chips" data-name="ref_liked" data-type="many">
+          <button type="button" class="chip">الفكرة</button><button type="button" class="chip">الصوت</button><button type="button" class="chip">المؤثرات</button><button type="button" class="chip">الألوان والأسلوب</button><button type="button" class="chip">السرعة والإيقاع</button><button type="button" class="chip">الشخصية</button>
+        </div></div>
+    </div>
+
+    <!-- STEP 5 -->
+    <div class="step" data-name="٥ من ٥ · نتواصل معك">
+      <div class="card">
+        <div class="f" style="margin-top:0"><label>اسمك *</label><input type="text" name="name" autocomplete="name"></div>
+        <div class="f"><label>اسم النشاط / المتجر</label><input type="text" name="business_name" autocomplete="organization"></div>
+        <div class="f"><label>رقم الجوال *</label><input type="tel" name="phone" placeholder="05xxxxxxxx" dir="ltr" autocomplete="tel" inputmode="tel"></div>
+        <div class="f"><label>حسابك في تيك توك / إنستقرام (اختياري)</label><input type="text" name="social" placeholder="@" dir="ltr"></div>
+        <div class="q" style="margin-top:14px">كيف تفضّل نتواصل؟</div>
+        <div class="chips" data-name="contact_pref" data-type="one">
+          <button type="button" class="chip">تيليجرام</button><button type="button" class="chip">واتساب</button><button type="button" class="chip">اتصال</button>
+        </div>
+        <div class="f"><label>ملاحظات (اختياري)</label><textarea name="notes" placeholder="أي شي تحب نعرفه"></textarea></div>
+        <label class="chk"><input type="checkbox" name="consent_claims"> أؤكد إن المعلومات والإثباتات صحيحة، وإن الشعار والصور ملكي أو مسموح لي استخدامها.</label>
+        <label class="chk"><input type="checkbox" name="consent_ai"> أعرف إن الفيديو مصنوع بالذكاء الاصطناعي وينكتب عليه ذلك عند النشر.</label>
+      </div>
+    </div>
+
+    <!-- DONE -->
+    <div class="step" id="done" data-name="تم">
+      <div class="card done">
+        <div class="big">🎉</div>
+        <h2>وصلنا طلبك!</h2>
+        <p id="doneMsg">بنراجع إجاباتك ونرجع لك خلال ٢٤ ساعة بفكرة الإعلان والسعر.</p>
+        <div class="sum" id="sum" style="display:none"></div>
+      </div>
+    </div>
+    <div class="err" id="err"></div>
+  </form>
+
+  <footer>Video Ads · إعلانات فيديو بالذكاء الاصطناعي<br>بياناتك تُستخدم لتجهيز طلبك فقط.</footer>
+</div>
+
+<div class="nav" id="nav"><div class="in">
+  <button class="btn s" id="back" type="button">رجوع</button>
+  <button class="btn p" id="next" type="button">التالي</button>
+</div></div>
+
+<a class="tg" id="tg" href="#" target="_blank" rel="noopener" aria-label="تيليجرام">
+  <span class="ic"><svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M21.5 4.3 18.4 19c-.2 1-.8 1.3-1.7.8l-4.6-3.4-2.2 2.1c-.2.2-.5.5-1 .5l.3-4.7 8.6-7.8c.4-.3-.1-.5-.6-.2L6.6 13 2.1 11.6c-1-.3-1-1 .2-1.4L20.1 3.3c.8-.3 1.6.2 1.4 1z"/></svg></span>
+  <span class="tip">سؤال سريع؟</span>
+</a>
+
+<script>
+// ===== Settings =====
+const ENDPOINT = "";               // Google Apps Script web-app URL (see apps-script.gs). Empty = fallback mode.
+const TELEGRAM = "+966537159713";
+// ====================
+const tgLink = "https://t.me/" + TELEGRAM;
+document.getElementById('tg').href = tgLink;
+
+const steps=[...document.querySelectorAll('.step')];
+const total=5; let cur=0;
+const prog=[...document.querySelectorAll('#prog i')];
+const nextBtn=document.getElementById('next'), backBtn=document.getElementById('back'), err=document.getElementById('err');
+const KEY='videoads_draft_v1';
+const store={get(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){return {}}},set(v){try{localStorage.setItem(KEY,JSON.stringify(v))}catch(e){}},clear(){try{localStorage.removeItem(KEY)}catch(e){}}};
+
+// chips
+document.querySelectorAll('.chips').forEach(g=>{
+  const many=g.dataset.type==='many', max=+g.dataset.max||99;
+  g.addEventListener('click',e=>{
+    const c=e.target.closest('.chip'); if(!c) return;
+    if(many){
+      if(c.classList.contains('on')) c.classList.remove('on');
+      else{ if(g.querySelectorAll('.chip.on').length>=max) return; c.classList.add('on'); }
+      // "none" options are exclusive
+      const t=c.textContent.trim();
+      if(c.classList.contains('on') && /^ما عندي/.test(t)) g.querySelectorAll('.chip.on').forEach(x=>{if(x!==c)x.classList.remove('on')});
+      else if(c.classList.contains('on')) g.querySelectorAll('.chip.on').forEach(x=>{if(/^ما عندي/.test(x.textContent.trim()))x.classList.remove('on')});
+    } else { g.querySelectorAll('.chip').forEach(x=>x.classList.remove('on')); c.classList.add('on'); }
+    save();
+  });
+});
+const chipVal=g=>[...g.querySelectorAll('.chip.on')].map(c=>(c.querySelector('.t')||c).textContent.trim());
+
+function collect(){
+  const d={};
+  document.querySelectorAll('.chips').forEach(g=>{const v=chipVal(g); d[g.dataset.name]=g.dataset.type==='many'?v:(v[0]||'')});
+  document.querySelectorAll('#f input[type=text],#f input[type=tel],#f input[type=url],#f textarea').forEach(i=>{if(i.name!=='website') d[i.name]=i.value.trim()});
+  document.querySelectorAll('#f input[type=checkbox]').forEach(i=>d[i.name]=i.checked?'نعم':'لا');
+  return d;
+}
+function save(){store.set(collect())}
+function restore(){
+  const d=store.get();
+  document.querySelectorAll('.chips').forEach(g=>{const v=[].concat(d[g.dataset.name]||[]);g.querySelectorAll('.chip').forEach(c=>{if(v.includes((c.querySelector('.t')||c).textContent.trim()))c.classList.add('on')})});
+  Object.keys(d).forEach(k=>{const el=document.querySelector('#f [name="'+k+'"]'); if(!el) return; if(el.type==='checkbox') el.checked=d[k]==='نعم'; else if(typeof d[k]==='string') el.value=d[k];});
+}
+document.getElementById('f').addEventListener('input',save);
+
+function show(i){
+  steps.forEach((s,k)=>s.classList.toggle('on',k===i));
+  prog.forEach((p,k)=>p.classList.toggle('on',k<=Math.min(i,total-1)));
+  document.getElementById('stepname').textContent=steps[i].dataset.name;
+  backBtn.style.display=i===0?'none':'block';
+  nextBtn.textContent=i===total-1?'أرسل الطلب ✓':'التالي';
+  document.getElementById('hero').style.display=i===0?'block':'none';
+  err.style.display='none'; cur=i;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function need(msg){err.textContent=msg;err.style.display='block';return false}
+function valid(i){
+  const d=collect();
+  if(i===0 && !d.business_type) return need('اختر نوع نشاطك.');
+  if(i===3 && !d.product_name) return need('اكتب اسم المنتج أو الخدمة.');
+  if(i===4){
+    if(!d.name) return need('اكتب اسمك.');
+    if(!/^\+?[0-9\s-]{8,15}$/.test(d.phone)) return need('اكتب رقم جوال صحيح.');
+    if(d.consent_claims!=='نعم'||d.consent_ai!=='نعم') return need('فضلًا وافق على التأكيدين.');
+  }
+  return true;
+}
+const LABELS={business_type:'النشاط',advertise:'نعلن عن',goal:'الهدف',platforms:'المنصات',style:'الأسلوب',length:'المدة',count:'عدد الفيديوهات',deadline:'الموعد',voice:'الصوت',tone:'النبرة',dialect:'اللهجة',music:'الموسيقى',audience_gender:'الجمهور',audience_age:'العمر',region:'المنطقة',product_name:'المنتج',main_benefit:'الفايدة',offer:'العرض',cta:'المطلوب من المشاهد',proofs:'الإثباتات',assets:'المواد',assets_link:'رابط الملفات',ref_1:'إعلان مرجعي ١',ref_2:'إعلان مرجعي ٢',ref_3:'إعلان مرجعي ٣',ref_liked:'عجبه فيها',name:'الاسم',business_name:'النشاط التجاري',phone:'الجوال',social:'الحساب',contact_pref:'التواصل المفضل',notes:'ملاحظات'};
+function summary(d){return Object.keys(LABELS).filter(k=>d[k]&&d[k].length).map(k=>LABELS[k]+': '+[].concat(d[k]).join('، ')).join('\n')}
+
+async function submit(){
+  const d=collect();
+  if(document.querySelector('.hp input').value) return;   // spam bot
+  d.submitted_at=new Date().toISOString(); d.page=location.href;
+  nextBtn.disabled=true; nextBtn.textContent='جاري الإرسال…';
+  let sent=false;
+  if(ENDPOINT){
+    try{ await fetch(ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(d)}); sent=true; }catch(e){ sent=false; }
+  }
+  const sum=document.getElementById('sum');
+  if(!sent){
+    sum.textContent=summary(d); sum.style.display='block';
+    document.getElementById('doneMsg').innerHTML='تعذّر الإرسال التلقائي. انسخ الملخص تحت وأرسله لنا على <a style="color:#7fd0ff" href="'+tgLink+'" target="_blank" rel="noopener">تيليجرام</a>.';
+    try{navigator.clipboard&&navigator.clipboard.writeText(summary(d))}catch(e){}
+  } else store.clear();
+  document.getElementById('nav').style.display='none';
+  steps.forEach(s=>s.classList.remove('on')); document.getElementById('done').classList.add('on');
+  document.getElementById('prog').style.display='none'; document.getElementById('stepname').textContent='';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+nextBtn.onclick=()=>{ if(!valid(cur)) return; if(cur<total-1) show(cur+1); else submit(); };
+backBtn.onclick=()=>{ if(cur>0) show(cur-1); };
+restore(); show(0);
+setTimeout(()=>{const t=document.querySelector('.tg .tip'); if(t) t.style.opacity='0';},6000);
+</script>
+</body>
+</html>
